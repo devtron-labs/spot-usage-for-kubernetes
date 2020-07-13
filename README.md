@@ -1,5 +1,6 @@
 # spot-usage-for-kubernetes
-how to balance cost and stability with spot n kubernetes
+
+How to balance cost and stability with spot in kubernetes.
 
 This repository is created to provide sample implementation of ideas espoused in blog ...
 
