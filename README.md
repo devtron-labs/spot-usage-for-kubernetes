@@ -2,7 +2,7 @@
 
 How to balance cost and stability with spot in kubernetes.
 
-This repository is created to provide sample implementation of ideas espoused in blog ...
+This repository is created to provide sample implementation of ideas espoused in blog - [How to use Spot to achieve Cost Savings with Stability on Kubernetes](https://devtron.ai/blog/how-to-use-spot-to-achieve-cost-savings-on-kubernetes/)
 
 This repository has three directories - **attempt_1**, **attempt_2**, **attempt_3**
 
