@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+spec:
+  selector:
+    matchLabels:
+      app: web-store
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: web-store
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 70
+            preference:
+              matchExpressions:
+              - key: lifecycle
+                operator: In
+                values:
+                - Spot
+          - weight: 30
+            preference:
+              matchExpressions:
+              - key: lifecycle
+                operator: In
+                values:
+                - OnDemand
+      containers:
+      - name: web-app
+        image: k8s.gcr.io/pause:2.0

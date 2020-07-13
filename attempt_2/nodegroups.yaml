@@ -1,0 +1,56 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  name: spot-4vcpu-16gb
+spec:
+  cloudLabels:
+    autoscaler: enabled
+    cluster: kops-cluster
+  image: kope.io/k8s-1.16-debian-stretch-amd64-hvm-ebs-2020-01-17
+  maxSize: 5
+  minSize: 1
+  machineType: m5.xlarge
+  mixedInstancesPolicy:
+    instances:
+    - m5.xlarge
+    - m5d.xlarge
+    - m4.xlarge
+    - t3.xlarge
+    - t3a.xlarge
+    - m5a.xlarge
+    - m5ad.xlarge
+    - m5n.xlarge
+    - m5dn.xlarge
+    onDemandBase: 0
+    onDemandAboveBase: 0
+    spotAllocationStrategy: capacity-optimized
+  nodeLabels:
+    lifecycle: Spot
+---
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  name: spot-4vcpu-16gb
+spec:
+  cloudLabels:
+    autoscaler: enabled
+    cluster: kops-cluster
+  image: kope.io/k8s-1.16-debian-stretch-amd64-hvm-ebs-2020-01-17
+  maxSize: 5
+  minSize: 1
+  machineType: m5.xlarge
+  mixedInstancesPolicy:
+    instances:
+    - m5.xlarge
+    - m5d.xlarge
+    - m4.xlarge
+    - t3.xlarge
+    - t3a.xlarge
+    - m5a.xlarge
+    - m5ad.xlarge
+    - m5n.xlarge
+    - m5dn.xlarge
+    onDemandBase: 3
+    onDemandAboveBase: 100
+  nodeLabels:
+    lifecycle: OnDemand
